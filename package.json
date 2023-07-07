@@ -1,18 +1,29 @@
 {
-  "name": "logoborderutil",
-  "version": "1.0.0",
-  "description": "A personal images logo border processing util",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
-  },
-  "keywords": [],
-  "author": "Void-7",
-  "license": "ISC",
-  "dependencies": {
-    "jimp": "^0.22.8",
-    "moment": "^2.29.4",
-    "tiny-worker": "^2.3.0"
-  }
+    "name": "logoborderutil",
+    "version": "1.0.0",
+    "description": "A personal images logo border processing util",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node main.js",
+        "build": "pkg . -t node14-win-x64 -d  -C GZip --out-path output/"
+    },
+    "bin": "./main.js",
+    "pkg": {
+        "assets": [
+            "node_modules/@jimp/plugin-print/fonts/open-sans/open-sans-64-black/open-sans-64-black.fnt",
+            "node_modules/@jimp/plugin-print/fonts/open-sans/open-sans-64-black/open-sans-64-black.png"
+        ],
+        "targets": [
+            "node14-win-x64"
+        ]
+    },
+    "keywords": [],
+    "author": "Quasimurdock",
+    "license": "ISC",
+    "dependencies": {
+        "jimp": "^0.22.8",
+        "moment": "^2.29.4",
+        "tiny-worker": "^2.3.0"
+    }
 }

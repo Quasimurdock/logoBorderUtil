@@ -47,3 +47,4 @@ async function processImages() {
 }
 
 processImages();
+process.stdin.resume();
