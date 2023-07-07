@@ -1,13 +1,14 @@
 const Worker = require('tiny-worker');
 const fs = require('fs');
 
+// 读取路径配置文件
 const config = JSON.parse(fs.readFileSync('config.json', 'utf-8'));
 
 // 设置要处理的图片的路径和输出路径
 const inputPath = config.inputDirectory;
 const outputPath = config.outputDirectory;
 
-// 获取要处理的所有图片文件的路径
+// 获取要处理的所有图片文件的文件名
 const pattern = /\.(jpg|jpeg|png|gif|bmp|tiff)$/i;
 const inputFiles = fs.readdirSync(inputPath)
   .filter(file => {
