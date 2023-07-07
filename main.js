@@ -7,7 +7,7 @@ const config = JSON.parse(fs.readFileSync('config.json', 'utf-8'));
 const inputPath = config.inputDirectory;
 const outputPath = config.outputDirectory;
 
-// 获取要处理的所有PNG文件的路径
+// 获取要处理的所有图片文件的路径
 const pattern = /\.(jpg|jpeg|png|gif|bmp|tiff)$/i;
 const inputFiles = fs.readdirSync(inputPath)
   .filter(file => {

@@ -15,7 +15,7 @@ So basically this is a script program which aims to generate **customized logo-s
 1. Border styles configuration are static (fonts, colors, etc.)
 2. ~~Logo files configuration are static (only my own camera's brand for testing)~~
 3. Imcomplete error handling (e.g. image files exif info missing cases)
-4. Multiple image formats supports missing
+4. ~~Multiple image formats supports missing~~
 5. Maybe it needs a GUI (idk actually it's for my own purpose, i'm OK with CLI lol...)
 
 ## Gossips
