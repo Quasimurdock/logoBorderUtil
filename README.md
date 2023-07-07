@@ -8,8 +8,10 @@ So basically this is a script program which aims to generate **customized logo-s
 2. Open terminal, `cd` to your project root directory, then `git clone` this repo.
 3. `npm install` to make sure all project dependencies added.
 4. Drag your image files into `./source/` directory.
-5. `npm start` to begin the program.
-6. Once you see there's successful logs in the console, check `./target/` directory for output processed images.
+5. Drag your logo files into `./logo/` directory.
+6. Customize key-value pairs of your own configurations in `config.json`.
+7. `npm start` to begin the program.
+8. Once you see there's successful logs in the console, check `./target/` directory for output processed images.
 
 ## Open issues
 1. Border styles configuration are static (fonts, colors, etc.)
