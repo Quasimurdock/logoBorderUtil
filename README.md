@@ -1,6 +1,6 @@
 # logoBorderUtil
 
-## What is it?
+## What is it
 So basically this is a script program which aims to generate **customized logo-styled bottom border** for photo images.
 
 ## How to use it
