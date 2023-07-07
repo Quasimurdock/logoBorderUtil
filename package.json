@@ -4,7 +4,8 @@
   "description": "A personal images logo border processing util",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
   },
   "keywords": [],
   "author": "Void-7",

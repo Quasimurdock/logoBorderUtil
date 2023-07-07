@@ -9,6 +9,11 @@ const outputPath = './target/';
 const fs = require('fs');
 const inputFiles = fs.readdirSync(inputPath).filter(file => file.endsWith('.jpg'));
 
+if (inputFiles == null || inputFiles.length == 0) {
+  console.log('Input files not found.');
+  return;
+}
+
 // 创建一个Tiny-worker池，用于并行处理图片
 const pool = [];
 for (let i = 0; i < inputFiles.length; i++) {
