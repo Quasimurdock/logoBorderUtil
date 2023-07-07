@@ -1,0 +1,7 @@
+{
+    "inputDirectory": "./source/",
+    "outputDirectory": "./target/",
+    "logoDirectory": "./logo/",
+    "logoFileName": "logo.png",
+    "brandLogoFileName": "brand_logo.png"
+}

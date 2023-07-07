@@ -1,12 +1,13 @@
-const Jimp = require('jimp');
 const Worker = require('tiny-worker');
+const fs = require('fs');
+
+const config = JSON.parse(fs.readFileSync('config.json', 'utf-8'));
 
 // 设置要处理的图片的路径和输出路径
-const inputPath = './source/';
-const outputPath = './target/';
+const inputPath = config.inputDirectory;
+const outputPath = config.outputDirectory;
 
 // 获取要处理的所有PNG文件的路径
-const fs = require('fs');
 const inputFiles = fs.readdirSync(inputPath).filter(file => file.endsWith('.jpg'));
 
 if (inputFiles == null || inputFiles.length == 0) {
@@ -36,7 +37,7 @@ async function processImages() {
         console.log(`Successfully completed all ${inputFiles.length} tasks.`);
       }
     }
-    await worker.postMessage({ inputPath, outputPath, filename });
+    await worker.postMessage({ inputPath, outputPath, filename, config });
   }
 }
 
