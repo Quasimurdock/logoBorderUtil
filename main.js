@@ -8,7 +8,11 @@ const inputPath = config.inputDirectory;
 const outputPath = config.outputDirectory;
 
 // 获取要处理的所有PNG文件的路径
-const inputFiles = fs.readdirSync(inputPath).filter(file => file.endsWith('.jpg'));
+const pattern = /\.(jpg|jpeg|png|gif|bmp|tiff)$/i;
+const inputFiles = fs.readdirSync(inputPath)
+  .filter(file => {
+    const result = file.match(pattern); return result.length != 0;
+  });
 
 if (inputFiles == null || inputFiles.length == 0) {
   console.log('Input files not found.');
