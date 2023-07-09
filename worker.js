@@ -42,26 +42,34 @@ onmessage = async function (ev) {
             // console.log(basicExifInfoString);
             const logo = await Jimp.read(
                 config.logoDirectory + config.logoFileName
-            );
+            ).catch((err) => {
+                console.log(err);
+            });
             const facLogo = await Jimp.read(
                 config.logoDirectory + config.brandLogoFileName
-            );
-            await logo.resize(640, Jimp.AUTO);
-            await facLogo.resize(640, Jimp.AUTO);
-            //相机LOGO打到边框上
-            borderedImg.blit(
-                logo,
-                img.bitmap.width * 0.02,
-                img.bitmap.height + bottomBorderHeight * 0.08
-            );
-            //厂商LOGO达到边框上
-            borderedImg.blit(
-                facLogo,
-                img.bitmap.width -
-                    facLogo.bitmap.width -
+            ).catch((err) => {
+                console.log(err);
+            });
+            if (logo != null && typeof logo != "undefined") {
+                await logo.resize(640, Jimp.AUTO);
+                //相机LOGO打到边框上
+                borderedImg.blit(
+                    logo,
                     img.bitmap.width * 0.02,
-                img.bitmap.height + bottomBorderHeight * 0.16
-            );
+                    img.bitmap.height + bottomBorderHeight * 0.08
+                );
+            }
+            if (facLogo != null && typeof logo != "undefined") {
+                await facLogo.resize(640, Jimp.AUTO);
+                //厂商LOGO达到边框上
+                borderedImg.blit(
+                    facLogo,
+                    img.bitmap.width -
+                        facLogo.bitmap.width -
+                        img.bitmap.width * 0.02,
+                    img.bitmap.height + bottomBorderHeight * 0.16
+                );
+            }
             //基本EXIF信息达到边框上
             borderedImg.print(
                 font,
@@ -75,7 +83,7 @@ onmessage = async function (ev) {
                     font,
                     img.bitmap.width - 608 - img.bitmap.width * 0.02,
                     img.bitmap.height + bottomBorderHeight * 0.68,
-                    moment(DateTimeOriginal * 1000).format(
+                    moment(DateTimeOriginal * 1000).utc().format(
                         "YYYY-MM-DD hh:mm:ss"
                     )
                 );
